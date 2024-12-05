@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Vigara Production</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    function updateDivisi2Options() {
+      const divisi1 = document.getElementById('divisi1').value;
+      const divisi2 = document.getElementById('divisi2');
+      
+      const options = ['Kameramen', 'Editor', 'Scriptwriter', 'Visual Design'];
+      
+      divisi2.innerHTML = '';
+
+      options.forEach(option => {
+        if (option !== divisi1) {
+          const newOption = document.createElement('option');
+          newOption.value = option;
+          newOption.textContent = option;
+          divisi2.appendChild(newOption);
+        }
+      });
+    }
+  </script>
+</head>
+
+<body>
+  <div id="running-text">
+    <div class="marquee">Selamat datang di Pendaftaran Vigpro 24/26 Gen 9, Pastikan semua data yang dimasukkan benar.</div>
+  </div>
+
+  <div id="form-container">
+    <h2>PENDAFTARAN CALON ANGGOTA VIGPRO GEN 9</h2>
+    <form action="https://script.google.com/macros/s/AKfycbw-27uT4HzRcqzaMysIJ62tzVwfFxMFImajXo5siCHhIR2ps9GWHOciks3hpdZGFDIZ/exec" method="post">
+      <label for="nama">Nama:</label>
+      <input type="text" id="nama" name="nama" required>
+      
+      <label for="divisi1">Divisi 1:</label>
+      <select id="divisi1" name="divisi1" required onchange="updateDivisi2Options()">
+        <option value="" disabled selected>Pilih Divisi 1</option>
+        <option value="Kameramen">Kameramen</option>
+        <option value="Editor">Editor</option>
+        <option value="Scriptwriter">Scriptwriter</option>
+        <option value="Visual Design">Visual Design</option>
+      </select>
+      
+      <label for="divisi2">Divisi 2:</label>
+      <select id="divisi2" name="divisi2" required>
+        <option value="" disabled selected>Pilih Divisi 2</option>
+        <option value="Kameramen">Kameramen</option>
+        <option value="Editor">Editor</option>
+        <option value="Scriptwriter">Scriptwriter</option>
+        <option value="Visual Design">Visual Design</option>
+      </select>
+      
+      <label for="visi">Visi:</label>
+      <textarea id="visi" name="visi" rows="4" required></textarea>
+      
+      <label for="misi">Misi:</label>
+      <textarea id="misi" name="misi" rows="4" required></textarea>
+      
+      <label for="no_hp">Nomor HP:</label>
+      <input type="tel" id="no_hp" name="no_hp" pattern="[0-9]{10,12}" required>
+      
+      <label for="alamat">Alamat Gmail:</label>
+      <input type="text" id="alamat" name="alamat" required>
+      
+      <label for="tgl_lahir">Tanggal Lahir:</label>
+      <input type="date" id="tgl_lahir" name="tgl_lahir" required>
+      
+      <input type="submit" value="Simpan Data">
+    </form>
+  </div>
+
+  <div id="footer">
+    <p>© 2024 Vigara Production</p>
+  </div>
+</body>
+</html>
